@@ -1,18 +1,5 @@
-#header {
-	font-size: 30px;
-	height: 300px;
-	width: 720px;
-	
-	#right-nav {
-		float: right;
-		height: 480px;
-		width: 480px;
-	}
-
-/*	#left-nav {
-		float: left;
-		height: 480px;
-		width: 2400px;
-
-	}*/
+#map{
+/*	font-size: 30px;*/
+	height: 500px;
+	width: 600px;
 }

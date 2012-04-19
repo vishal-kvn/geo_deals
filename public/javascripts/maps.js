@@ -27,6 +27,8 @@ MYMAP.placeMarkers = function() {
            show: 'division,title,smallImageUrl,options'
           },
 		     success: function(json){
+			      map_current_location(MYMAP.map, 40.714623, -74.006605);
+			
 						$.each(json.deals, function(i, item){
 							//console.log(item.options);
 							var lat;
@@ -76,8 +78,32 @@ MYMAP.placeMarkers = function() {
 				infoWindow.setContent(html);
 				infoWindow.open(MYMAP.map, marker);
 			});
-			MYMAP.map.fitBounds(MYMAP.bounds);
+			//MYMAP.map.fitBounds(MYMAP.bounds);
 		});
 				 }
 	});
+}
+
+var map_current_location = function(map, lat, lng) {
+	//displaying current location
+	 //diff pin for current location
+	  var myLatLng = new google.maps.LatLng(lat, lng);
+	  var pinColor = "008000";
+	  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+	  new google.maps.Size(42, 68),
+	  new google.maps.Point(0,0),
+	  new google.maps.Point(10, 34));
+	
+	  var center_marker = new google.maps.Marker({
+			position: myLatLng,
+			map: map,
+			icon: pinImage
+		});
+		
+		var infoWindow = new google.maps.InfoWindow();
+		var html='<strong>'+"Current Location"+'</strong.><br />';
+		google.maps.event.addListener(center_marker, 'click', function() {
+			infoWindow.setContent(html);
+			infoWindow.open(MYMAP.map, center_marker);
+		});
 }

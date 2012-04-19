@@ -5,7 +5,7 @@
 	<script src="javascripts/yqlgeo.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="javascripts/geo.js"></script>
-	<script type="text/javascript" src="javascripts/markers.js"></script>
+	<script type="text/javascript" src="javascripts/maps.js"></script>
 	  
 	<script>  
 	    jQuery(window).ready(function(){  
@@ -16,9 +16,11 @@
 				height: 500,
 				width: 600
 			});
-		  
-		  var myLatLng = new google.maps.LatLng(40.714623, -74.006605);
-		  MYMAP.init('#map', myLatLng, 11);
+			
+			var myLatLng = new google.maps.LatLng(40.714623, -74.006605);
+			MYMAP.init('#map', myLatLng, 11);
+			
+			map_current_location(MYMAP.map, 40.714623, -74.006605);
 
 		  $("#showmarkers").click(function(e){
 				MYMAP.placeMarkers();
