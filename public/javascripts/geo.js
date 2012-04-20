@@ -2,12 +2,8 @@ function initiate_geolocation() {
  	//alert("inside initiate_geolocation");
       if (navigator.geolocation)  
       {  
-          navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);  
-      }  
-      else  
-      {  
-          yqlgeo.get('visitor', normalize_yql_response);  
-      }  
+          navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
+      } 
   }  
 
   function handle_errors(error)  
@@ -28,34 +24,16 @@ function initiate_geolocation() {
       }  
   }  
 
-  function normalize_yql_response(response)  
-  {  
-      if (response.error)  
-      {  
-          var error = { code : 0 };  
-          handle_error(error);  
-          return;  
-      }  
-
-      var position = {  
-          coords :  
-          {  
-              latitude: response.place.centroid.latitude,  
-              longitude: response.place.centroid.longitude  
-          },  
-          address :  
-          {  
-              city: response.place.locality2.content,  
-              region: response.place.admin1.content,  
-              country: response.place.country.content  
-          }  
-      };  
-
-      handle_geolocation_query(position);  
-  }  
-
   function handle_geolocation_query(position)
-      {  
-      alert('Lat: ' + position.coords.latitude + ' ' +  
-            'Lon: ' + position.coords.longitude);  
-      }
+   {  
+		//console.log('before' + 'lat: ' + clat + ' lng: ' + clng);
+		clat = 37.4419444;//40.353;//position.coords.latitude;40.714623;
+		clng = -122.1419444;//-74.673;//position.coords.longitude;-74.006605;
+
+		console.log('values to map current location' + 'lat: ' + clat + ' lng: ' + clng);
+
+		var myLatLng = new google.maps.LatLng(clat, clng);
+		MYMAP.init('#map', myLatLng, 9);
+
+		map_current_location(MYMAP.map, clat, clng, "Current Location");
+   }

@@ -1,5 +1,57 @@
-#map{
-/*	font-size: 30px;*/
-	height: 500px;
-	width: 600px;
+/* html body tag style */  
+body {  
+    margin: 0px;  
+    padding: 0px;  
+}  
+  
+/* h1 tag style */  
+h1 {  
+    margin: 0px;  
+    padding: 10px;  
+    font-family: arial;  
+    font-size: 200%;
+/*  	allign: center;*/
+		color: #ffffff;
+}  
+  
+/* CSS Style Rule for Div having id="outer-container" */  
+/* outer-container will hold the whole assembly of  
+   nested div overlays. */  
+/* It will also center align the design */  
+#outer-container {  
+    width: 720px;  
+    margin: 0 auto;  
+}  
+  
+/* footer CSS Style Rule */  
+#header {  
+    width: 720px;  
+    height: 90px;
+		background: #333333;
+}  
+  
+/* footer CSS Style Rule */  
+#footer {  
+    width: 720px;
+}  
+  
+/* content-container CSS Style Rule */  
+/* It will hold the main content of the page. */  
+/* it is the right side column */  
+/* in this 2 columns div layout */  
+#map {  
+    width: 480px;  
+    height: 400px;
+/*    margin: 2px 0px 2px 0px;  */
+    float: left;  
+}  
+  
+/* left side navigation that is the left side column of */  
+/* 2 columns div layout */  
+#left-nav {  
+    width: 240px;  
+    height: 400px;
+/*    margin: 2px 2px 2px 0px;  */
+    float: left;  
+		background: #89B556;
 }
